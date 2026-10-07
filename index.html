@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>¡Feliz cumpleaños, Sam!</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="fx" aria-hidden="true"></canvas>
+    <header class="hero">
+      <svg
+        class="corner tl"
+        viewBox="0 0 200 200"
+        fill="none"
+        stroke="#fff"
+        stroke-width="2"
+        aria-hidden="true"
+      >
+        <path d="M0 0L200 60M0 0L170 170M0 0L60 200M0 0L200 0M0 0L0 200" />
+        <path
+          d="M40 12Q38 38 12 40M80 24Q76 76 24 80M120 36Q114 114 36 120M160 48Q152 152 48 160"
+        />
+      </svg>
+      <svg
+        class="corner br"
+        viewBox="0 0 200 200"
+        fill="none"
+        stroke="#fff"
+        stroke-width="2"
+        aria-hidden="true"
+      >
+        <path d="M0 0L200 60M0 0L170 170M0 0L60 200M0 0L200 0M0 0L0 200" />
+        <path
+          d="M40 12Q38 38 12 40M80 24Q76 76 24 80M120 36Q114 114 36 120M160 48Q152 152 48 160"
+        />
+      </svg>
+      <div class="web" aria-hidden="true"></div>
+      <div class="spider" aria-hidden="true">🕷️</div>
+      <div>
+        <svg class="mask" viewBox="0 0 120 140" role="img" aria-label="Máscara de Spiderman">
+          <path
+            d="M60 4C24 4 8 36 10 72c2 36 24 64 50 64s48-28 50-64C112 36 96 4 60 4Z"
+            fill="#e3122c"
+            stroke="#12122b"
+            stroke-width="5"
+          />
+          <g stroke="#12122b" stroke-width="2.2" fill="none">
+            <path
+              d="M60 4V136M10 72H110M16 38Q60 56 104 38M14 104Q60 86 106 104M30 14Q38 70 28 126M90 14Q82 70 92 126"
+            />
+          </g>
+          <path
+            d="M16 62Q30 40 54 66Q50 92 30 94Q14 90 16 62Z"
+            fill="#fff"
+            stroke="#12122b"
+            stroke-width="5"
+          />
+          <path
+            d="M104 62Q90 40 66 66Q70 92 90 94Q106 90 104 62Z"
+            fill="#fff"
+            stroke="#12122b"
+            stroke-width="5"
+          />
+        </svg>
+        <div class="burst comic">
+          <small>¡Tu amigo y vecino Spiderman dice!</small>
+          <h1>¡Feliz cumple, Sam!</h1>
+          <p>Hoy el héroe de la fiesta eres tú.</p>
+        </div>
+        <button class="btn" id="go">¡Lanzar telarañas!</button>
+      </div>
+    </header>
+    <div class="ticker comic" aria-hidden="true"><div id="tk"></div></div>
+    <main>
+      <div class="wrap">
+        <section>
+          <h2 class="comic">¡Misión: celebrar!</h2>
+          <div class="panels">
+            <div class="panel">
+              <h3 class="comic">Sentido arácnido</h3>
+              <p>Algo me dice que este va a ser el mejor día del año.</p>
+            </div>
+            <div class="panel">
+              <h3 class="comic">Superpoderes</h3>
+              <p>Pastel infinito, regalos súper pegajosos y risas que trepan paredes.</p>
+            </div>
+            <div class="panel">
+              <h3 class="comic">Gran responsabilidad</h3>
+              <p>Soplar todas las velitas en un solo intento. ¡Tú puedes!</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="comic">Estadísticas de Sam, el héroe</h2>
+          <div class="stats">
+            <div class="stat"><b>100%</b>Valentía</div>
+            <div class="stat"><b>∞</b>Ganas de pastel</div>
+            <div class="stat"><b>99</b>Velocidad de telaraña</div>
+            <div class="stat"><b>MAX</b>Diversión</div>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="comic">Apaga las velitas</h2>
+          <div class="cakebox">
+            <svg
+              id="cake"
+              viewBox="0 0 300 190"
+              width="100%"
+              style="max-width: 380px"
+              role="group"
+              aria-label="Pastel con velitas"
+            >
+              <rect
+                x="30"
+                y="110"
+                width="240"
+                height="70"
+                rx="6"
+                fill="#e3122c"
+                stroke="#12122b"
+                stroke-width="5"
+              />
+              <rect
+                x="30"
+                y="110"
+                width="240"
+                height="26"
+                rx="6"
+                fill="#fff"
+                stroke="#12122b"
+                stroke-width="5"
+              />
+              <path
+                d="M60 136v14M110 136v22M165 136v12M215 136v20M250 136v10"
+                stroke="#fff"
+                stroke-width="8"
+                stroke-linecap="round"
+              />
+              <g id="candles"></g>
+            </svg>
+            <p id="cmsg" class="comic" style="font-size: 1.6rem">Toca cada velita para apagarla</p>
+            <button class="btn alt" id="relight" style="margin-top: 1rem">Prender otra vez</button>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="comic">Muro de felicitaciones</h2>
+          <div class="form">
+            <input id="who" placeholder="Tu nombre" maxlength="30" aria-label="Tu nombre" />
+            <textarea
+              id="msg"
+              rows="3"
+              placeholder="Escribe un deseo para Sam"
+              maxlength="200"
+              aria-label="Tu mensaje"
+            ></textarea>
+            <button class="btn" id="post">Pegar mensaje</button>
+          </div>
+          <div class="notes" id="notes"></div>
+        </section>
+
+        <section>
+          <h2 class="comic">Un mensaje para Sam</h2>
+          <p class="wish">
+            Gran poder conlleva gran responsabilidad, y la tuya hoy es <b>divertirte muchísimo</b>.
+            Gracias por ser una amiga increíble. ¡Que este nuevo año venga lleno de aventuras, saltos
+            entre edificios y mucho pastel!
+          </p>
+        </section>
+      </div>
+    </main>
+    <footer class="comic">Con gran cumpleaños viene gran diversión 🎂🕸️</footer>
+    <script src="script.js"></script>
+  </body>
+</html>
